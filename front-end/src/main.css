@@ -9,3 +9,8 @@
     margin-left: 20%;
     margin-right: 20%;
 }
+.registration{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

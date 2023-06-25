@@ -20,11 +20,14 @@ const register = async (req,res)=>{
         const user = new userModel({
             name : req.body.name,
             email:req.body.email,
-            password:req.body.pass
+            password:req.body.password
         })
-        await Users.insertOne({user})
-    } catch (error) {
+        await user.save().then((data)=>{
+            res.send(data)
+        })
         
+    } catch (error) {
+        res.send(error)
     }
 
 }
