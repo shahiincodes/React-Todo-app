@@ -1,4 +1,5 @@
 const todoModel = require("../models/todoModel")
+const userModel = require("../models/userModel")
 
 
 const getTodos = async (req, res) => {
@@ -13,6 +14,19 @@ const getTodos = async (req, res) => {
     } catch (error) {
         res.send(error)
     }
+}
+const register = async (req,res)=>{
+    try {
+        const user = new userModel({
+            name : req.body.name,
+            email:req.body.email,
+            password:req.body.pass
+        })
+        await Users.insertOne({user})
+    } catch (error) {
+        
+    }
+
 }
 const createTodos = async (req, res) => {
     const {tittle,content}= req.body
@@ -56,5 +70,6 @@ module.exports = {
     getTodos,
     createTodos,
     updateTodos,
-    deleteTodos
+    deleteTodos,
+    register
 }
