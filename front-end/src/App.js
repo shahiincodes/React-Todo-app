@@ -42,7 +42,7 @@ function App() {
         <Route path='/home' element={todos &&< Home todos={todos} error={error} handleDelete={handleDelete} /> }/>
         <Route path='/all-todos' element={todos && < Todos todos={todos} handleDelete={handleDelete} />}/>
         <Route path='/create-todo' element={<CreateTodo />}/>
-        <Route path='/registeer' element={<Register/>} />
+        <Route path='/register' element={<Register/>} />
       </Routes>
     </div>
 
