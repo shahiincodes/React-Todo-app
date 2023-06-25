@@ -7,6 +7,7 @@ import {Routes,Route} from 'react-router-dom'
 import CreateTodo from './CreateTodo';
 import axios from 'axios'
 import Home from './Home';
+import Register from './Registration';
 
 function App() {
   const [error, setError] = useState(null)
@@ -41,7 +42,7 @@ function App() {
         <Route path='/home' element={todos &&< Home todos={todos} error={error} handleDelete={handleDelete} /> }/>
         <Route path='/all-todos' element={todos && < Todos todos={todos} handleDelete={handleDelete} />}/>
         <Route path='/create-todo' element={<CreateTodo />}/>
-        
+        <Route path='/registeer' element={<Register/>} />
       </Routes>
     </div>
 

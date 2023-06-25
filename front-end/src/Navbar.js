@@ -19,6 +19,9 @@ const Navbar = ({searchbar}) => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/create-todo">Create-Todo</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/register">Register User</Link>
+                        </li>
                        
                     </ul>
                     {searchbar?<form className="d-flex">
