@@ -1,5 +1,6 @@
 const todoModel = require("../models/todoModel")
 const userModel = require("../models/userModel")
+const jwt = require ("jsonwebtoken")
 
 
 const getTodos = async (req, res) => {
@@ -23,6 +24,9 @@ const register = async (req,res)=>{
             password:req.body.password
         })
         await user.save().then((data)=>{
+            const token = jwt.sign(user,process.env.TodoJwtkey)
+            res.cookies("todoToken",token,{httpOnly:true})
+            console.log(token)
             res.send(data)
         })
         

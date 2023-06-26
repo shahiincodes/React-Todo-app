@@ -1,4 +1,3 @@
-const { ObjectId } = require("mongodb")
 const mongoose = require("mongoose")
 const todoSchema = new mongoose.Schema({
     tittle: {
@@ -11,7 +10,7 @@ const todoSchema = new mongoose.Schema({
     },
     user:{
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Todo"
+        ref:"User"
     }
    
 })
