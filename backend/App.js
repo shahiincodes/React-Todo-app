@@ -1,5 +1,6 @@
 const express = require ('express')
 const mongoose = require ('mongoose')
+const cookieParser = require ("cookie-parser")
 const app = express()
 const env = require("dotenv")
 const bodyparser = require("body-parser")
@@ -8,6 +9,7 @@ const cors =require ('cors')
 env.config()
 
 app.use(express.json())
+app.use(cookieParser())
 app.use(cors())
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({

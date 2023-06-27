@@ -24,10 +24,10 @@ const register = async (req,res)=>{
             password:req.body.password
         })
         await user.save().then((data)=>{
-            const token = jwt.sign(user,process.env.TodoJwtkey)
-            res.cookies("todoToken",token,{httpOnly:true})
-            console.log(token)
-            res.send(data)
+            jwt.sign(user,process.env.TodoJwtkey,(token)=>{
+                res.cookie("todoToken",token,{httpOnly:true})
+            })
+            res.json(data)
         })
         
     } catch (error) {
@@ -36,9 +36,12 @@ const register = async (req,res)=>{
 
 }
 const createTodos = async (req, res) => {
-    const {tittle,content}= req.body
+    const tittle= req.body;
+    const content = req.body.content;
+    const user = req.id
     try {
         const newTodo = new todoModel({
+            user,
             tittle,
             content
         })

@@ -39,8 +39,8 @@ function App() {
     
      <Routes>
      <Route path='/' element={todos && < Home todos={todos} error={error} handleDelete={handleDelete} />}/>
-        <Route path='/home' element={todos &&< Home todos={todos} error={error} handleDelete={handleDelete} /> }/>
-        <Route path='/all-todos' element={todos && < Todos todos={todos} handleDelete={handleDelete} />}/>
+        <Route path='/home' element={todos.length===0 &&< Home todos={todos} error={error} handleDelete={handleDelete} /> }/>
+        <Route path='/all-todos' element={todos.length===0 && < Todos todos={todos} handleDelete={handleDelete} />}/>
         <Route path='/create-todo' element={<CreateTodo />}/>
         <Route path='/register' element={<Register/>} />
       </Routes>

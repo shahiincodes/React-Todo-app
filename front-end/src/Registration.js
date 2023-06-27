@@ -21,6 +21,11 @@ const Registration = () => {
     axios.post('http://localhost:5000/register',user)
     .then((res)=>{
       console.log(res.data)
+      setUser({
+        name: "",
+        email: "",
+        password: ""
+      })
       
     })
     .catch((err)=>{console.log(err.message)})
