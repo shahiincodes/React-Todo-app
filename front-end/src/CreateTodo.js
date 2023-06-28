@@ -7,24 +7,28 @@ const CreateTodo = () => {
         tittle:"",
         content:""
     })
+    const [error,setError] = useState(null)
     const handleChange =(e)=>{
         const {name, value}= e.target;
+        
 
         setTodo(prevElm =>{
             return {
                 ...prevElm,
                 [name]:value
+                
             }
         })
     }
     const addTodo = (e) => {
         e.preventDefault()
         axios.post("http://localhost:5000/create-todo", todo).then((res) => {
+            console.log(res.data)
             setTodo({
                 tittle:"",
                 content:""
             })
-        }).catch(err=>console.log(err.message))   
+        }).catch(err=>setError(err.message))   
     }
     return (
     

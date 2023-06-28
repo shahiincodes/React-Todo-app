@@ -1,12 +1,12 @@
 const jwt = require ("jsonwebtoken")
 
-const verifyJwt = (req,res,next)=>{
-const token = req.cookies.todoToken
+const verifyJwt = async (req,res,next)=>{
+const recievedtoken = req.cookies.token
+console.log("recieved token:" + recievedtoken)
 try {
-    if(token){
-        jwt.verify(token,process.env.TodoJwtkey,(err, data)=>{
-            req.id = data._id;
-            req.name = data.name;
+    if(recievedtoken){
+        jwt.verify(recievedtoken,process.env.jwt_key,async(err, data)=>{
+            req.userId = data;
             next()
         })
     }else{
